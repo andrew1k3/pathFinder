@@ -4,7 +4,8 @@ A visualiser for a path finding bot that solves [this](https://leetcode.com/prob
 
 ## Description
 
-This program brings a visualisation to the 'depth first search' algorithm and how it can be applied to trying to find a valid _path_ (a valid path is a path from start to finish that coverse _EVERY_ square).
+This program brings a visualisation to the 'depth first search' algorithm and how it can be applied to find all valid _pathes_.
+- A valid path is a path from start to finish that coverse _EVERY_ square.
 
 ## Preview
 
