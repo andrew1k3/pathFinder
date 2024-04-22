@@ -1,6 +1,6 @@
 # Path Finder Robot Visualiser
 
-A visualiser for a path finding bot that solves [this]([https://html-preview.github.io/?url=https://raw.githubusercontent.com/andrew1k3/dortmund/main/index.html](https://leetcode.com/problems/unique-paths-iii/description/)) leetcode question. 
+A visualiser for a path finding bot that solves ![this]([https://html-preview.github.io/?url=https://raw.githubusercontent.com/andrew1k3/dortmund/main/index.html](https://leetcode.com/problems/unique-paths-iii/description/)) leetcode question. 
 
 ## Description
 
