@@ -9,7 +9,6 @@ This program brings a visualisation to the 'depth first search' algorithm and ho
 
 ## Preview
 
-![movie-ezgif com-loop-count](https://github.com/andrew1k3/pathFinder/assets/95467716/67a24ecd-8d70-40cf-8fa9-a13d1d4dfe85)
 ![movie2-ezgif com-loop-count](https://github.com/andrew1k3/pathFinder/assets/95467716/7d97095e-82e2-4441-8f59-b222968d1daa)
 
 ## Dependencies
