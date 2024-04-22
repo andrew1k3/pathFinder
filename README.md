@@ -21,7 +21,6 @@ This program brings a visualisation to the 'depth first search' algorithm and ho
 ## How To Use
 
 Go into /src/pathFinderBot.py and modify these variables at the bottom.
-
-`grid` = Configure the grid for the bot to manuevere. (-1: Obstacle, 0: Nothing, 1: Robot, 2: Finish).
-`render` = Enables rendering to the frames folder and tries to create a GIF of at movie.gif.
-`print` = Enables printing to the console of recursive algorithm..
+- `grid` = Configure the grid for the bot to manuevere. (-1: Obstacle, 0: Nothing, 1: Robot, 2: Finish).
+- `render` = Enables rendering to the frames folder and tries to create a GIF of at movie.gif.
+- `print` = Enables printing to the console of recursive algorithm..
