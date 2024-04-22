@@ -1,4 +1,4 @@
-![movie2](https://github.com/andrew1k3/pathFinder/assets/95467716/107b9dd1-19ac-498f-83ba-850d9c615cec)# Path Finder Robot Visualiser
+# Path Finder Robot Visualiser
 
 A visualiser for a path finding bot that solves [this]([https://html-preview.github.io/?url=https://raw.githubusercontent.com/andrew1k3/dortmund/main/index.html](https://leetcode.com/problems/unique-paths-iii/description/)) leetcode question. 
 
@@ -8,8 +8,7 @@ This program brings a visualisation to the 'depth first search' algorithm and ho
 
 ## Preview
 
-![movie2](https://github.com/andrew1k3/pathFinder/assets/95467716/b1986b58-d26e-4fa1-9925-0bff585dbbd9)
-![movie](https://github.com/andrew1k3/pathFinder/assets/95467716/f71cacc7-fc09-45d1-b1de-09f12f91a5f6)
+![movie2](https://github.com/andrew1k3/pathFinder/assets/95467716/b1986b58-d26e-4fa1-9925-0bff585dbbd9) ![movie](https://github.com/andrew1k3/pathFinder/assets/95467716/f71cacc7-fc09-45d1-b1de-09f12f91a5f6)
 
 ## Dependencies
 
