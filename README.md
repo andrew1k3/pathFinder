@@ -1,14 +1,14 @@
 # Path Finder Robot Visualiser
 
-A visualiser for a path finding bot that solves [this]([https://html-preview.github.io/?url=https://raw.githubusercontent.com/andrew1k3/dortmund/main/index.html](https://leetcode.com/problems/unique-paths-iii/description/)) leetcode question. 
+A visualiser for a path finding bot that solves [this](https://leetcode.com/problems/unique-paths-iii/description/) leetcode question. 
 
 ## Description
 
-This program brings a visualisation to the 'depth first search' algorithm and how it can be applied to trying to find a valid _path_ (a valid path is a path from start to finish that coverse _EVERY_ square).
+This program brings a visualisation to the 'depth first search' algorithm and how it can be applied to find all valid _pathes_.
+- A valid path is a path from start to finish that coverse _EVERY_ square.
 
 ## Preview
 
-![movie-ezgif com-loop-count](https://github.com/andrew1k3/pathFinder/assets/95467716/67a24ecd-8d70-40cf-8fa9-a13d1d4dfe85)
 ![movie2-ezgif com-loop-count](https://github.com/andrew1k3/pathFinder/assets/95467716/7d97095e-82e2-4441-8f59-b222968d1daa)
 
 ## Dependencies
@@ -21,7 +21,7 @@ This program brings a visualisation to the 'depth first search' algorithm and ho
 
 ## How To Use
 
-Go into /src/pathFinderBot.py and modify these variables at the bottom.
+Go into `/src/pathFinderBot.py` and modify these variables at the bottom.
 - `grid` = Configure the grid for the bot to manuevere. (-1: Obstacle, 0: Nothing, 1: Robot, 2: Finish).
 - `render` = Enables rendering to the frames folder and tries to create a GIF of at `movie.gif`.
 - `print` = Enables printing to the console of recursive algorithm.
