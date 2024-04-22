@@ -8,7 +8,8 @@ This program brings a visualisation to the 'depth first search' algorithm and ho
 
 ## Preview
 
-![movie2](https://github.com/andrew1k3/pathFinder/assets/95467716/b1986b58-d26e-4fa1-9925-0bff585dbbd9) ![movie](https://github.com/andrew1k3/pathFinder/assets/95467716/f71cacc7-fc09-45d1-b1de-09f12f91a5f6)
+![movie-ezgif com-loop-count](https://github.com/andrew1k3/pathFinder/assets/95467716/67a24ecd-8d70-40cf-8fa9-a13d1d4dfe85)
+![movie2-ezgif com-loop-count](https://github.com/andrew1k3/pathFinder/assets/95467716/7d97095e-82e2-4441-8f59-b222968d1daa)
 
 ## Dependencies
 
@@ -22,5 +23,5 @@ This program brings a visualisation to the 'depth first search' algorithm and ho
 
 Go into /src/pathFinderBot.py and modify these variables at the bottom.
 - `grid` = Configure the grid for the bot to manuevere. (-1: Obstacle, 0: Nothing, 1: Robot, 2: Finish).
-- `render` = Enables rendering to the frames folder and tries to create a GIF of at movie.gif.
-- `print` = Enables printing to the console of recursive algorithm..
+- `render` = Enables rendering to the frames folder and tries to create a GIF of at `movie.gif`.
+- `print` = Enables printing to the console of recursive algorithm.
