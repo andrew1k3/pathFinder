@@ -1,12 +1,13 @@
 import matplotlib.pyplot as plt
 from matplotlib import colors
-plt.rcParams["font.family"] = "monospace"
 import numpy as np
 from typing import List
 import copy
 import os
 import imageio
 import glob
+
+plt.rcParams["font.family"] = "monospace"
 
 class Solution:
     def __init__(self, print, render):
@@ -32,18 +33,17 @@ class Solution:
         if (not self.render): return
         counter = copy.deepcopy(self.counter)
         grid = copy.deepcopy(grid)
+        seen = copy.deepcopy(seen)
         grid[current] = 1
         for x in seen:
             grid[x] = 3
 
+        # Prepare frame
         fig, ax = plt.subplots()
-
         cmap = colors.ListedColormap([self.colours["OBSTACLE"], "black", self.colours["ROBOT"], self.colours["FLAG"], self.colours["PATH"]])
         bounds = [-1,0,1,2,3,4]
         norm = colors.BoundaryNorm(bounds, cmap.N)
-
         img = ax.imshow(grid, cmap=cmap, norm=norm)
-        
         for i in range(grid.shape[0]):
             ax.axhline(0.5 + i, color='white')
         for i in range(grid.shape[1]):
@@ -53,22 +53,21 @@ class Solution:
         ax.set_xticks(range(grid.shape[1])) 
 
         X_WEST = 1.05
-        X_WEST_SHIFT = 0.17
-        X_WEST_2 = X_WEST + X_WEST_SHIFT
         Y_TOP = 1.00
         Y_SHIFT = 0.06
         ylabelpos = lambda n : Y_TOP - n * Y_SHIFT
 
+        # If list is too long to fit in frame (weird solution)
+        if (len(seen) > 16): 
+            seen = seen[len(seen)-16:]
+            seen.insert(0, "...")
+
+        # Render text
         ax.text(0, 1.1, f'Seen: {seen}', transform=ax.transAxes, fontsize="5")
-
         ax.text(X_WEST, ylabelpos(1), f'Current: {current}', transform=ax.transAxes)
-
         ax.text(X_WEST, ylabelpos(2), f'Entering', transform=ax.transAxes, color='g' if entering else 'r')
-
         ax.text(X_WEST, ylabelpos(3), f'Escaping', transform=ax.transAxes, color='g' if escaping else 'r')
-
         ax.text(X_WEST, ylabelpos(4), f'Finishing', transform=ax.transAxes, color='g' if finish else 'r')
-        
         ax.text(X_WEST, 0.10, f'Total Paths Found: {counter}', transform=ax.transAxes, fontsize="20")
 
         if found:
@@ -82,12 +81,23 @@ class Solution:
 
         plt.close()
 
+    def renderGif(self) -> None:
+        if (not self.render): return
+        if self.print: print(f"Generating GIF with {self.frameNumber} frames")
+        images = []
+        for filename in sorted(glob.glob('./src/frames/*')):
+            images.append(imageio.imread(filename))
+        try:
+            imageio.mimsave('./src/movie.gif', images, format='GIF', fps=120, loop=0)
+        except Exception as e:
+            print("Gif failed", e)
 
     def uniquePathsIII(self, grid: List[List[int]]) -> int:
         grid = np.array(grid)
         numZeros = sum((grid == 0).flatten()) # ARE YOU HAPPY JAMES ARE YOU HAPPY ARE YOU HAPPY
         start = (lambda x: (x[0][0], x[1][0]))(np.where(grid == 1))
 
+        # Recursive Depth First Search to find paths. If path found, add one to self.counter.
         def dfs(current, seen) -> None:
             if grid[current] == 2:
                 if self.print: print("IM AT FINISH")
@@ -153,21 +163,11 @@ class Solution:
                 os.remove(file)
 
         dfs(start, [])
-
-        if self.render:
-            if self.print: print(f"Generating GIF with {self.frameNumber} frames")
-            images = []
-            for filename in sorted(glob.glob('./src/frames/*')):
-                images.append(imageio.imread(filename))
-            try:
-                imageio.mimsave('./src/movie.gif', images, format='GIF', fps=120)
-            except Exception as e:
-                print("Gif failed")
-                print(e)
+        self.renderGif()
 
         return self.counter
 
-
+# TEST CASES
 
 # grid = [
 #     [1,0,0,0],
@@ -175,11 +175,22 @@ class Solution:
 #     [0,0,0,0],
 #     [0,0,2,-1]]
 
-grid = [[1,0,0,-1,2],
-        [0,0,0,-1,0],
-        [-1,-1,0,0,0],]
+# grid = [[1,0,0,-1,2],
+#         [0,0,0,-1,0],
+#         [-1,-1,0,0,0],]
 
+# grid = [
+#     [ 1, 0, 0, 0],
+#     [-1,-1,-1, 0],
+#     [ 0, 0, 0, 0],
+#     [ 0, 0, 0,-1],
+#     [ 0, 0, 2,-1]]
 
-solution = Solution(print=False, render=True)
+grid = [[ 1, 0, 0, 0, 0, 0, 0, 0, 0],
+        [-1,-1, 0, 0,-1,-1,-1,-1, 0],
+        [ 2, 0, 0, 0, 0, 0, 0, 0, 0],
+        [-1,-1, 0, 0,-1,-1,-1,-1,-1]]
+
+solution = Solution(print=True, render=True)
 answer = solution.uniquePathsIII(grid)
 if solution.print: print(answer)
